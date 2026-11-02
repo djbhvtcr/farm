@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="可愛的農村養成互動式網頁遊戲 - 種植、澆水、收成、餵食動物！">
+  <title>🌿 小小農村物語 — 農村養成遊戲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== TITLE SCREEN ===== -->
+<div id="title-screen">
+  <div class="title-bg"></div>
+  <div class="title-overlay"></div>
+  
+  <!-- Floating decorations -->
+  <div class="floating-leaf" style="top:10%; left:8%; animation-delay:0s;">🍃</div>
+  <div class="floating-leaf" style="top:20%; right:12%; animation-delay:1.5s;">🌸</div>
+  <div class="floating-leaf" style="top:60%; left:15%; animation-delay:3s;">🌻</div>
+  <div class="floating-leaf" style="top:70%; right:20%; animation-delay:0.8s;">🍂</div>
+  <div class="floating-leaf" style="top:40%; left:5%; animation-delay:2.2s;">🌿</div>
+  <div class="floating-leaf" style="bottom:15%; right:8%; animation-delay:1s;">🌷</div>
+  
+  <div class="title-content">
+    <h1 class="game-title">🌿 小小農村物語</h1>
+    <p class="game-subtitle">🏡 打造屬於你的溫馨小農場 🌾</p>
+    <button id="start-btn" class="start-btn">
+      🌱 開始遊戲
+    </button>
+  </div>
+</div>
+
+<!-- ===== GAME CONTAINER ===== -->
+<div id="game-container">
+  
+  <!-- Scrollable scene viewport -->
+  <div id="scene-viewport">
+    <div id="scene-world">
+      
+      <!-- Sky -->
+      <div class="sky-layer">
+        <div class="cloud" style="top:8%; left:5%; width:120px; height:40px; animation-duration:25s;"></div>
+        <div class="cloud" style="top:15%; left:25%; width:80px; height:30px; animation-duration:30s; animation-delay:5s;"></div>
+        <div class="cloud" style="top:5%; left:50%; width:150px; height:45px; animation-duration:35s; animation-delay:10s;"></div>
+        <div class="cloud" style="top:12%; left:75%; width:100px; height:35px; animation-duration:28s; animation-delay:3s;"></div>
+        <div class="cloud" style="top:20%; left:90%; width:90px; height:30px; animation-duration:32s; animation-delay:8s;"></div>
+      </div>
+      
+      <!-- Hills -->
+      <div class="hills-far"></div>
+      <div class="hills-near" style="left: -200px; width: 130%;"></div>
+      
+      <!-- Ground -->
+      <div class="ground">
+        <div class="ground-texture"></div>
+      </div>
+      
+      <!-- Background image overlay -->
+      <div class="scene-bg-image"></div>
+      
+      <!-- Decorative trees — 04.png 藍綠樹冠風格 -->
+      <div class="tree" style="bottom: 50%; left: 50px;">
+        <div class="tree-top" style="width:90px; height:80px;"></div>
+        <div class="tree-trunk" style="width:22px; height:60px;"></div>
+      </div>
+      <div class="tree" style="bottom: 52%; left: 950px;">
+        <div class="tree-top" style="width:80px; height:70px;"></div>
+        <div class="tree-trunk"></div>
+      </div>
+      <div class="tree" style="bottom: 48%; left: 1480px;">
+        <div class="tree-top" style="width:100px; height:85px;"></div>
+        <div class="tree-trunk" style="width:24px; height:65px;"></div>
+      </div>
+      <div class="tree" style="bottom: 55%; left: 2600px;">
+        <div class="tree-top" style="width:70px; height:60px;"></div>
+        <div class="tree-trunk"></div>
+      </div>
+      <div class="tree" style="bottom: 50%; left: 2900px;">
+        <div class="tree-top" style="width:85px; height:75px;"></div>
+        <div class="tree-trunk" style="width:20px; height:55px;"></div>
+      </div>
+      
+      <!-- Sunflowers -->
+      <div class="sunflower" style="bottom: 48%; left: 80px;">
+        <div class="sunflower-head"></div>
+        <div class="sunflower-stem"></div>
+      </div>
+      <div class="sunflower" style="bottom: 45%; left: 920px;">
+        <div class="sunflower-head"></div>
+        <div class="sunflower-stem" style="height:50px;"></div>
+      </div>
+      <div class="sunflower" style="bottom: 47%; left: 1550px;">
+        <div class="sunflower-head"></div>
+        <div class="sunflower-stem" style="height:35px;"></div>
+      </div>
+      
+      <!-- Fences -->
+      <div class="fence-section" style="bottom: 45%; left: 130px; width: 700px;">
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+      </div>
+      
+      <div class="fence-section" style="bottom: 45%; left: 1600px; width: 800px;">
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+        <div class="fence-post"></div><div class="fence-post"></div><div class="fence-post"></div>
+        <div class="fence-post"></div>
+      </div>
+      
+      <!-- Flower decorations -->
+      <div class="flower-deco" style="bottom:38%; left:30px;"><span>🌸</span></div>
+      <div class="flower-deco" style="bottom:36%; left:860px;"><span>🌼</span></div>
+      <div class="flower-deco" style="bottom:40%; left:1450px;"><span>🌺</span></div>
+      <div class="flower-deco" style="bottom:37%; left:2550px;"><span>🌸</span></div>
+      <div class="flower-deco" style="bottom:35%; left:3050px;"><span>🌼</span></div>
+      
+      <!-- ===== FARMLAND ZONE ===== -->
+      <div class="farm-zone farmland-zone">
+        <div class="zone-title">🌾 農田區</div>
+        <div class="farm-plots" id="farm-plots">
+          <!-- 8 plots generated by JS -->
+        </div>
+      </div>
+      
+      <!-- ===== FARMHOUSE ===== -->
+      <div class="farm-zone farmhouse-zone">
+        <div class="zone-title">🏠 農舍</div>
+        <div class="farmhouse">
+          <div class="chimney-smoke">
+            <div class="smoke-puff"></div>
+            <div class="smoke-puff"></div>
+            <div class="smoke-puff"></div>
+          </div>
+          <div class="farmhouse-roof"></div>
+          <div class="farmhouse-body">
+            <div class="farmhouse-window left"></div>
+            <div class="farmhouse-window right"></div>
+            <div class="farmhouse-door"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ===== ANIMAL ZONE ===== -->
+      <div class="farm-zone animal-zone">
+        <div class="zone-title">🐾 可愛動物區</div>
+        <div class="animal-pen" id="animal-pen">
+          <!-- Animals generated by JS -->
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Scroll arrows -->
+  <div class="scroll-arrow left" id="scroll-left">◀</div>
+  <div class="scroll-arrow right" id="scroll-right">▶</div>
+  
+  <!-- Navigation hint -->
+  <div class="nav-hint" id="nav-hint">← 拖曳或使用箭頭來移動場景 →</div>
+  
+  <!-- ===== HUD ===== -->
+  <div id="game-hud">
+    <div class="hud-top">
+      <div class="hud-info">
+        <div class="hud-stat">
+          <span class="hud-stat-icon">🌾</span>
+          <span id="hud-day">第 1 天</span>
+        </div>
+        <div class="hud-stat">
+          <span class="hud-stat-icon">💰</span>
+          <span id="hud-coins">0</span>
+        </div>
+      </div>
+      <div class="hud-buttons">
+        <button class="hud-btn" id="btn-shop" title="種子雜貨舖">🏪</button>
+        <button class="hud-btn" id="btn-inventory" title="包包">🎒</button>
+        <button class="hud-btn" id="btn-home" title="回首頁">🏠</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ===== TOOLBAR ===== -->
+  <div id="toolbar">
+    <button class="tool-btn" data-tool="hand" title="移動">
+      <span>✋</span>
+      <span class="tool-label">移動</span>
+    </button>
+    <button class="tool-btn" data-tool="seed" title="種子">
+      <img src="images/item_seeds.png" alt="種子" class="tool-icon-img">
+      <span class="tool-label">種子</span>
+    </button>
+    <button class="tool-btn" data-tool="water" title="澆水">
+      <img src="images/item_watering.png" alt="澆水" class="tool-icon-img">
+      <span class="tool-label">澆水</span>
+      <span class="tool-count" id="water-count">∞</span>
+    </button>
+    <button class="tool-btn" data-tool="harvest" title="收成">
+      <img src="images/item_carrot.png" alt="收成" class="tool-icon-img">
+      <span class="tool-label">收成</span>
+    </button>
+    <button class="tool-btn" data-tool="feed" title="餵食">
+      <img src="images/item_wheat.png" alt="餵食" class="tool-icon-img">
+      <span class="tool-label">餵食</span>
+    </button>
+  </div>
+  
+  <!-- ===== SEED SELECT ===== -->
+  <div id="seed-select">
+    <!-- Generated by JS -->
+  </div>
+  
+  <!-- ===== INVENTORY PANEL ===== -->
+  <div id="overlay"></div>
+  <div id="inventory-panel">
+    <div class="inv-header">
+      <div class="inv-title">🎒 我的包包</div>
+      <button class="inv-close" id="inv-close">✕</button>
+    </div>
+    <div class="inv-tabs">
+      <button class="inv-tab active" data-tab="all">全部</button>
+      <button class="inv-tab" data-tab="seed">種子</button>
+      <button class="inv-tab" data-tab="crop">農作物</button>
+      <button class="inv-tab" data-tab="food">食物</button>
+      <button class="inv-tab" data-tab="tool">工具</button>
+    </div>
+    <div class="inv-grid" id="inv-grid">
+      <!-- Generated by JS -->
+    </div>
+  </div>
+
+  <!-- ===== SEED SHOP PANEL ===== -->
+  <div id="shop-panel">
+    <div class="shop-header">
+      <div class="shop-title">🏪 種子雜貨舖</div>
+      <div class="shop-coins-display">
+        <span>💰</span>
+        <span id="shop-coins">0</span>
+      </div>
+      <button class="shop-close" id="shop-close">✕</button>
+    </div>
+    <div class="shop-sub">🌾 使用辛勤耕作與餵食動物賺取的金幣，購買更多種子與飼料！</div>
+    <div class="shop-grid" id="shop-grid">
+      <!-- Generated by JS -->
+    </div>
+  </div>
+  
+  <!-- Drag ghost -->
+  <div id="drag-ghost"></div>
+  
+  <!-- Tooltip -->
+  <div class="item-tooltip" id="item-tooltip">
+    <div class="item-tooltip-title"></div>
+    <div class="item-tooltip-desc"></div>
+  </div>
+  
+  <!-- Save indicator -->
+  <div class="save-indicator" id="save-indicator">💾 已儲存</div>
+  
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
